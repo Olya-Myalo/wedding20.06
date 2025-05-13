@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приглашение на свадьбу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #fdf5f5;
+            color: #5a3e36;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        .header-image {
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            object-fit: cover;
+            display: block;
+        }
+        .invitation-container {
+            max-width: 800px;
+            margin: -50px auto 50px;
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+        .gold-border {
+            height: 6px;
+            background: linear-gradient(90deg, #d4af37, #f5e6ab, #d4af37);
+        }
+        .content {
+            padding: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #b76e79;
+            position: relative;
+        }
+        h1:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: #e8c4c4;
+            margin: 20px auto;
+        }
+        .names {
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 40px 0;
+            font-weight: 700;
+            color: #b76e79;
+        }
+        .and {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 1.8rem;
+            color: #b76e79;
+            margin: 0 10px;
+        }
+        .details {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        .date, .place {
+            display: block;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .map-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+        .flowers {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #e8c4c4;
+            margin: 30px 0;
+        }
+        .footer {
+            text-align: center;
+            font-style: italic;
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+        .floral-divider {
+            width: 150px;
+            opacity: 0.7;
+            margin: 40px auto;
+            display: block;
+        }
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            .header-image {
+                max-height: 50vh;
+            }
+            .invitation-container {
+                margin: -30px auto 30px;
+                border-radius: 10px;
+            }
+            .content {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            h1:after {
+                width: 70px;
+                margin: 15px auto;
+            }
+            .names {
+                font-size: 1.8rem;
+                margin: 30px 0;
+            }
+            .and {
+                font-size: 1.5rem;
+            }
+            .details {
+                font-size: 1rem;
+                margin: 20px 0;
+            }
+            .date, .place {
+                margin: 10px 0;
+            }
+            .flowers {
+                font-size: 1.3rem;
+                margin: 20px 0;
+            }
+            .footer {
+                margin-top: 30px;
+                font-size: 1rem;
+            }
+            .floral-divider {
+                width: 100px;
+                margin: 30px auto;
+            }
+            iframe {
+                height: 200px;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-image {
+                max-height: 40vh;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .names {
+                font-size: 1.5rem;
+            }
+            .and {
+                font-size: 1.2rem;
+            }
+            .gold-border {
+                height: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+         alt="Свадебное фото" 
+         class="header-image" />
+
+    <div class="invitation-container">
+        <div class="gold-border"></div>
+        
+        <div class="content" id="content">
+            <h1>Дорогие наши, близкие!</h1>
+            
+            <p class="details">
+                Примите наше самое сердечное приглашение<br>
+                на празднование самого важного дня в нашей жизни
+            </p>
+            
+            <svg class="floral-divider" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0,5 Q25,10 50,5 T100,5" stroke="#e8c4c4" fill="none" stroke-width="0.5"/>
+            </svg>
+            
+            <div class="names">
+                Владислав <span class="and">и</span> Ольга
+            </div>
+            
+            <div class="flowers">❁ ✽ ❁</div>
+            
+            <div class="details">
+                <span class="date">20 июня 2025 года в 16:20 состоится роспись в ОЗАГС Курортного района по адресу: г.Сестрорецк, пл.Свободы, д.1</span>
+                
+                <span class="place">Далее мы ждем вас в ресторане "Рыба на Даче", г. Сестрорецка</span>
+                <!-- Карта ресторана -->
+                <div class="map-container">
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=29.984270%2C60.124898&mode=search&oid=1002023701&z=12" allowfullscreen="true" style="height:300px; border-radius:10px;"></iframe>
+                </div>
+            </div>
+            
+            <p class="details" style="margin-top: 30px;">
+                Начало празднования в 17:30<br>
+                <small></small>
+            </p>
+            
+            <svg class="floral-divider" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" stroke="#e8c4c4" fill="none" stroke-width="0.5"/>
+            </svg>
+            
+            <div class="footer">
+                С любовью,<br>
+                Влад и Оля
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.getElementById('content');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(content);
+        });
+        function adjustForMobile() {
+            if (window.innerWidth <= 768) {
+            }
+        }
+        window.addEventListener('resize', adjustForMobile);
+        adjustForMobile();
+    </script>
+</body>
+</html>
